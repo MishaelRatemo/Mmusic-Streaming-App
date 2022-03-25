@@ -1,0 +1,120 @@
+body{
+    /* background-color: #F4F5FD; */
+    background-image: linear-gradient(to bottom, black, purple);
+    /* color: rgb(36, 37, 37); */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.loginforms{
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 5px 5px 7px gainsboro;
+}
+.form-group{
+    margin-top: 10px;
+}
+#submits{
+    background-color: #F4F5FD;
+    height: 45px;
+    font-size: 20px;
+}
+.form-group a{
+    font-weight: bold;
+    text-decoration: none;
+}
+.flex_contents{
+    display: flex;
+}
+.navbars{
+    background-color: #FFFFFF;
+    width: 200px;
+    height: 100vh;
+    /* border-radius: 0px 30px 30px 0px; */
+    padding: 10px;
+}
+.link{
+    padding: 10px;
+    margin-top: 5px;
+}
+.body{
+    width: 90%;
+}
+.links .link a{
+    color: rgb(36, 37, 37);
+    text-decoration: none;
+    font-size: 17px;
+}
+.links .link:hover{
+    border:1px solid rgb(36, 37, 37);
+    border-radius: 5px;
+    align-items: center;
+}
+.uploadform{
+    width: 80%;
+    margin: auto;
+}
+textarea{
+    height: 150px;
+    resize: none;
+}
+.editusernames{
+    width: 40%;
+}
+.flex_profiles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+.flex_profiles .details{
+    width: 40%;
+}
+.details .images img{
+    border-radius: 50%;
+}
+.details .name{
+    font-size: 20px;
+    font-weight: bold;
+}
+.searchsongs{
+    width: 70%;
+    margin: auto;
+    padding: 15px;
+}
+#searchitems{
+    height: 46px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 23px;
+}
+.displayimegs{
+    width: 50%;
+    height: 260px;
+    background-image: url(../images/music1.jpg);
+    background-size: 100% 100%;
+    border-radius: 20px;
+    position: relative;
+}
+.content{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+}
+.playmusic button{
+    border:none;
+    font-size: 20px;
+    background-color: rgb(36, 37, 37);
+    color: #FFFFFF;
+    height: 50px;
+}
+#favs{
+    background-color: rgb(36, 37, 37);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+.lyricsall{
+    width: 40%;
+    margin: auto;
+}

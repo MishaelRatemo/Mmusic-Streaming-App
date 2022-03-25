@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block body %} 
+<div class="flex_contents">
+    <div class="navbars">
+          <nav>
+              <p>Music Player</p>
+              <div class="links">
+                  <div class="link"><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a></div>
+                  <div class="link"><a href="{% url 'favourites' %}"><i class="fa-solid fa-heart"></i> Favourite</a></div>
+                  {% if role.roles == 'Artist' %}
+                  <div class="link"><a href="{% url 'uploads' %}"><i class="fa-solid fa-upload"></i> Uploads</a></div>
+                  {% endif %}
+                  <div class="link"><a href="{% url 'profiles' %}"><i class="fa-solid fa-user"></i> Profile</a></div>
+                  <div class="link"><a href="{% url 'logout' %}">Logout</a></div>
+              </div>
+          </nav>
+    </div>
+    <div class="body">
+          <div class="flex_profiles">
+            <div class="editusernames">
+                <form action="{% url 'updateprofile' %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+                <div class="text-success text-center">{{ success }}</div>
+                <div class="form-group">
+                    <label for="usernames">Username</label>
+                    <input type="text" name="usernames" value="{{ profiles.username }}" id="usernames" autocomplete="off" class="form-control" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="userimage">photo</label>
+                    <input type="file" name="userimage" id="userimage" autocomplete="off" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password" autocomplete="off" class="form-control" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">confirm password</label>
+                    <input type="password" name="cpassword" id="cpassword" autocomplete="off" class="form-control" placeholder="Confirm password" required>
+                </div>
+                <div class="form-group">
+                    <a href="{% url 'userlogin' %}">have account?</a>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn" id="submits">
+                </div>
+                  </form>
+              </div>
+              <div class="details">
+                    <div class="images">
+                        <img src="{{ profiles.userimage.url }}" height="150px" width="150px" alt="">
+                    </div>
+                    <div class="name">
+                       username:  {{ profiles.username }}
+                    </div>
+              </div>
+          </div>
+    </div>
+</div>
+{% endblock %}

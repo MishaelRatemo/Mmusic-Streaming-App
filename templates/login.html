@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+    <script src="{% static 'fontawesome/js/all.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="loginforms card">
+        <h5 class="text-center p-3">Welcome back to music-player, where music set the mood. Login to proceed.</h5>
+
+        <form action="{% url 'userlogin' %}" method="post" class="card-body">
+            {% csrf_token %}
+            <div class="text-danger text-center">{{ errors }}</div>
+            <div class="form-group">
+                <label for="usernames">Username</label>
+                <input type="text" name="usernames" id="usernames" autocomplete="off" class="form-control" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" autocomplete="off" class="form-control" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">Dont have account?
+                <a href="{% url 'userregister' %}"> Sign Up</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn" id="submits">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

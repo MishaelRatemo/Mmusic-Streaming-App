@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block body %} 
+<div class="flex_contents">
+    <div class="navbars">
+          <nav>
+              <p>Music Player</p>
+              <div class="links">
+                  <div class="link"><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a></div>
+                  <div class="link"><a href="{% url 'favourites' %}"><i class="fa-solid fa-heart"></i> Favourite</a></div>
+                  <div class="link"><a href="{% url 'uploads' %}"><i class="fa-solid fa-upload"></i> Uploads</a></div>
+                  <div class="link"><a href="{% url 'profiles' %}"><i class="fa-solid fa-user"></i> Profile</a></div>
+                  <div class="link"><a href="{% url 'logout' %}">Logout</a></div>
+              </div>
+          </nav>
+    </div>
+    <div class="body">
+          <div class="uploadform shadow p-5">
+              <h4 class="text-center">Upload Music</h4>
+            <form action="{% url 'uploads' %}" method="post" enctype="multipart/form-data">
+               {% csrf_token %}
+               <div class="form-group">
+                   <label for="songtitle">Song Title</label>
+                   <input type="text" name="songtitle" id="songtitle"  required class="form-control" placeholder="Enter somg name">
+               </div>
+               <div class="form-group">
+                   <label for="songalbum">Album name</label>
+                   <input type="text" name="songalbum" id="songalbum" class="form-control" placeholder="Enter Album name" required>
+               </div>
+               <div class="form-group">
+                <label for="songgonre">Song Type</label>
+                    <select name="songgonre" id="songgonre" required class="form-control">
+                        <option value=""> -- select genre --</option>
+                        <option value="Hip Pop">Hip Pop</option>
+                        <option value="RnBs">RnBs</option>
+                        <option value="Country">Country</option>
+                        <option value="Gospel">Gospel</option>
+                        <option value="Riddimz">Riddimz</option>
+                        <option value="Regea">Regea</option>
+                        <option value="Genge Tone">Genge Tone</option>
+                        <option value="Rhumba">Rhumba</option>
+                        <option value="Bongo">Bongo</option>
+                        <option value="Taarab">Taarab</option>
+                        <option value="Ohangle">Ohangle</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="songfile">Audio</label>
+                    <input type="file" name="songfile" id="songfile" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lyrices">Lyrics</label>
+                    <textarea name="lyrices" id="lyrices" cols="30" class="form-control" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Upload" class="btn" id="submits">
+                </div>
+            </form>
+          </div>
+    </div>
+</div>
+{% endblock %}
